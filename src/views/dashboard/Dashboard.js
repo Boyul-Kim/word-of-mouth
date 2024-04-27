@@ -93,14 +93,13 @@ const Dashboard = () => {
         new: true,
         registered: 'Jan 1, 2023',
       },
-      country: { name: 'USA', flag: cifUs },
       usage: {
+        name: 'Burger',
         value: 50,
         period: 'Jun 11, 2023 - Jul 10, 2023',
         color: 'success',
       },
-      payment: { name: 'Mastercard', icon: cibCcMastercard },
-      activity: '10 sec ago',
+      survey: { value: 3.8 }
     },
     {
       avatar: { src: avatar2, status: 'danger' },
@@ -109,38 +108,35 @@ const Dashboard = () => {
         new: false,
         registered: 'Jan 1, 2023',
       },
-      country: { name: 'Brazil', flag: cifBr },
       usage: {
+        name: 'Pizza',
         value: 22,
         period: 'Jun 11, 2023 - Jul 10, 2023',
         color: 'info',
       },
-      payment: { name: 'Visa', icon: cibCcVisa },
-      activity: '5 minutes ago',
+      survey: { value: 4.3}
     },
     {
       avatar: { src: avatar3, status: 'warning' },
       user: { name: 'Quintin Ed', new: true, registered: 'Jan 1, 2023' },
-      country: { name: 'India', flag: cifIn },
       usage: {
+        name: 'Tacos',
         value: 74,
         period: 'Jun 11, 2023 - Jul 10, 2023',
         color: 'warning',
       },
-      payment: { name: 'Stripe', icon: cibCcStripe },
-      activity: '1 hour ago',
+      survey: { value: 4.7 }
     },
     {
       avatar: { src: avatar4, status: 'secondary' },
       user: { name: 'Enéas Kwadwo', new: true, registered: 'Jan 1, 2023' },
-      country: { name: 'France', flag: cifFr },
       usage: {
+        name: 'Salad',
         value: 98,
         period: 'Jun 11, 2023 - Jul 10, 2023',
         color: 'danger',
       },
-      payment: { name: 'PayPal', icon: cibCcPaypal },
-      activity: 'Last month',
+      survey: { value: '2.9' }
     },
     {
       avatar: { src: avatar5, status: 'success' },
@@ -149,14 +145,13 @@ const Dashboard = () => {
         new: true,
         registered: 'Jan 1, 2023',
       },
-      country: { name: 'Spain', flag: cifEs },
       usage: {
+        name: 'Pasta',
         value: 22,
         period: 'Jun 11, 2023 - Jul 10, 2023',
         color: 'primary',
       },
-      payment: { name: 'Google Wallet', icon: cibCcApplePay },
-      activity: 'Last week',
+      survey: { value: 3.9 }
     },
     {
       avatar: { src: avatar6, status: 'danger' },
@@ -165,14 +160,13 @@ const Dashboard = () => {
         new: true,
         registered: 'Jan 1, 2023',
       },
-      country: { name: 'Poland', flag: cifPl },
       usage: {
+        name: 'Sandwich',
         value: 43,
         period: 'Jun 11, 2023 - Jul 10, 2023',
         color: 'success',
       },
-      payment: { name: 'Amex', icon: cibCcAmex },
-      activity: 'Last week',
+      survey: { value: 4.4 }
     },
   ]
 
@@ -233,7 +227,7 @@ const Dashboard = () => {
           </CRow>
         </CCardFooter>
       </CCard>
-      <WidgetsBrand className="mb-4" withCharts />
+      {/* <WidgetsBrand className="mb-4" withCharts /> */}
       <CRow>
         <CCol xs>
           <CCard className="mb-4">
@@ -303,21 +297,21 @@ const Dashboard = () => {
 
                   <div className="mb-5"></div>
 
-                  {progressGroupExample3.map((item, index) => (
-                    <div className="progress-group" key={index}>
-                      <div className="progress-group-header">
-                        <CIcon className="me-2" icon={item.icon} size="lg" />
-                        <span>{item.title}</span>
-                        <span className="ms-auto fw-semibold">
-                          {item.value}{' '}
-                          <span className="text-body-secondary small">({item.percent}%)</span>
-                        </span>
+                    {progressGroupExample3.map((item, index) => (
+                      <div className="progress-group" key={index}>
+                        <div className="progress-group-header">
+                          <CIcon className="me-2" icon={item.icon} size="lg" />
+                          <span>{item.title}</span>
+                          <span className="ms-auto fw-semibold">
+                            {item.value}{' '}
+                            <span className="text-body-secondary small">({item.percent}%)</span>
+                          </span>
+                        </div>
+                        <div className="progress-group-bars">
+                          <CProgress thin color="success" value={item.percent} />
+                        </div>
                       </div>
-                      <div className="progress-group-bars">
-                        <CProgress thin color="success" value={item.percent} />
-                      </div>
-                    </div>
-                  ))}
+                    ))}
                 </CCol>
               </CRow>
 
@@ -329,15 +323,11 @@ const Dashboard = () => {
                     <CTableHeaderCell className="bg-body-tertiary text-center">
                       <CIcon icon={cilPeople} />
                     </CTableHeaderCell>
-                    <CTableHeaderCell className="bg-body-tertiary">User</CTableHeaderCell>
+                    <CTableHeaderCell className="bg-body-tertiary">Customers</CTableHeaderCell>
+                    <CTableHeaderCell className="bg-body-tertiary">Most Ordered Dish</CTableHeaderCell>
                     <CTableHeaderCell className="bg-body-tertiary text-center">
-                      Country
+                      Average Survey Score
                     </CTableHeaderCell>
-                    <CTableHeaderCell className="bg-body-tertiary">Usage</CTableHeaderCell>
-                    <CTableHeaderCell className="bg-body-tertiary text-center">
-                      Payment Method
-                    </CTableHeaderCell>
-                    <CTableHeaderCell className="bg-body-tertiary">Activity</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
                 <CTableBody>
@@ -353,12 +343,9 @@ const Dashboard = () => {
                           {item.user.registered}
                         </div>
                       </CTableDataCell>
-                      <CTableDataCell className="text-center">
-                        <CIcon size="xl" icon={item.country.flag} title={item.country.name} />
-                      </CTableDataCell>
                       <CTableDataCell>
                         <div className="d-flex justify-content-between text-nowrap">
-                          <div className="fw-semibold">{item.usage.value}%</div>
+                          <div className="fw-semibold">{item.usage.name}</div>
                           <div className="ms-3">
                             <small className="text-body-secondary">{item.usage.period}</small>
                           </div>
@@ -366,11 +353,7 @@ const Dashboard = () => {
                         <CProgress thin color={item.usage.color} value={item.usage.value} />
                       </CTableDataCell>
                       <CTableDataCell className="text-center">
-                        <CIcon size="xl" icon={item.payment.icon} />
-                      </CTableDataCell>
-                      <CTableDataCell>
-                        <div className="small text-body-secondary text-nowrap">Last login</div>
-                        <div className="fw-semibold text-nowrap">{item.activity}</div>
+                        <div style={ item.survey.value >= 3.0 ?{border: '1px solid #2e7d32', background: '#2e7d32'}:{border: '1px solid #d32f2f', background:'#d32f2f'}}>{item.survey.value}/5.0</div>
                       </CTableDataCell>
                     </CTableRow>
                   ))}
