@@ -97,7 +97,7 @@ const Dashboard = () => {
         name: 'Burger',
         value: 50,
         period: 'Jun 11, 2023 - Jul 10, 2023',
-        color: 'success',
+        color: '#556B2F',
       },
       survey: { value: 3.8 }
     },
@@ -173,7 +173,7 @@ const Dashboard = () => {
   return (
     <>
       <WidgetsDropdown className="mb-4" />
-      <CCard className="mb-4">
+      {/* <CCard className="mb-4">
         <CCardBody>
           <CRow>
             <CCol sm={5}>
@@ -226,14 +226,14 @@ const Dashboard = () => {
             ))}
           </CRow>
         </CCardFooter>
-      </CCard>
+      </CCard> */}
       {/* <WidgetsBrand className="mb-4" withCharts /> */}
       <CRow>
         <CCol xs>
           <CCard className="mb-4">
-            <CCardHeader>Traffic {' & '} Sales</CCardHeader>
+            {/* <CCardHeader>Traffic {' & '} Sales</CCardHeader> */}
             <CCardBody>
-              <CRow>
+              {/* <CRow>
                 <CCol xs={12} md={6} xl={6}>
                   <CRow>
                     <CCol xs={6}>
@@ -313,17 +313,17 @@ const Dashboard = () => {
                       </div>
                     ))}
                 </CCol>
-              </CRow>
+              </CRow> */}
 
               <br />
 
               <CTable align="middle" className="mb-0 border" hover responsive>
                 <CTableHead className="text-nowrap">
                   <CTableRow>
-                    <CTableHeaderCell className="bg-body-tertiary text-center">
+                    {/* <CTableHeaderCell className="bg-body-tertiary text-center">
                       <CIcon icon={cilPeople} />
                     </CTableHeaderCell>
-                    <CTableHeaderCell className="bg-body-tertiary">Customers</CTableHeaderCell>
+                    <CTableHeaderCell className="bg-body-tertiary">Customers</CTableHeaderCell> */}
                     <CTableHeaderCell className="bg-body-tertiary">Most Ordered Dish</CTableHeaderCell>
                     <CTableHeaderCell className="bg-body-tertiary text-center">
                       Average Survey Score
@@ -333,16 +333,16 @@ const Dashboard = () => {
                 <CTableBody>
                   {tableExample.map((item, index) => (
                     <CTableRow v-for="item in tableItems" key={index}>
-                      <CTableDataCell className="text-center">
+                      {/* <CTableDataCell className="text-center">
                         <CAvatar size="md" src={item.avatar.src} status={item.avatar.status} />
-                      </CTableDataCell>
-                      <CTableDataCell>
+                      </CTableDataCell> */}
+                      {/* <CTableDataCell>
                         <div>{item.user.name}</div>
                         <div className="small text-body-secondary text-nowrap">
                           <span>{item.user.new ? 'New' : 'Recurring'}</span> | Registered:{' '}
                           {item.user.registered}
                         </div>
-                      </CTableDataCell>
+                      </CTableDataCell> */}
                       <CTableDataCell>
                         <div className="d-flex justify-content-between text-nowrap">
                           <div className="fw-semibold">{item.usage.name}</div>
@@ -353,7 +353,7 @@ const Dashboard = () => {
                         <CProgress thin color={item.usage.color} value={item.usage.value} />
                       </CTableDataCell>
                       <CTableDataCell className="text-center">
-                        <div style={ item.survey.value >= 3.0 ?{border: '1px solid #2e7d32', background: '#2e7d32'}:{border: '1px solid #d32f2f', background:'#d32f2f'}}>{item.survey.value}/5.0</div>
+                        <div style={ item.survey.value >= 3.0 ?{border: '1px solid #556B2F', background: '#556B2F', color: 'white'}:{border: '1px solid #800020', background:'#800020', color: 'white'}}>{item.survey.value}/5.0</div>
                       </CTableDataCell>
                     </CTableRow>
                   ))}
