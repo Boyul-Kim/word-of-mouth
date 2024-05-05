@@ -28,7 +28,7 @@ const AppSidebar = () => {
   return (
     <CSidebar
       className="border-end"
-      colorScheme="dark"
+      colorScheme="cream"
       position="fixed"
       unfoldable={unfoldable}
       visible={sidebarShow}
@@ -37,11 +37,11 @@ const AppSidebar = () => {
       }}
     >
       <CSidebarHeader className="border-bottom">
-        <CSidebarBrand to="/">
-          <Typography sx={{color: "#004AAD", fontSize: "20px"}}>Feed</Typography>
+        {/* <CSidebarBrand to="/"> */}
+        <Typography sx={{color: "#004AAD", fontSize: "30px"}}>Feed</Typography>
           {/* <CIcon customClassName="sidebar-brand-full" icon={logo} height={32} />
           <CIcon customClassName="sidebar-brand-narrow" icon={sygnet} height={32} /> */}
-        </CSidebarBrand>
+        {/* </CSidebarBrand> */}
         <CCloseButton
           className="d-lg-none"
           dark
@@ -49,11 +49,11 @@ const AppSidebar = () => {
         />
       </CSidebarHeader>
       <AppSidebarNav items={navigation} />
-      <CSidebarFooter className="border-top d-none d-lg-flex">
+      {/* <CSidebarFooter className="border-top d-none d-lg-flex">
         <CSidebarToggler
           onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
         />
-      </CSidebarFooter>
+      </CSidebarFooter> */}
     </CSidebar>
   )
 }

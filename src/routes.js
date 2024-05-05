@@ -52,6 +52,9 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const Survey = React.lazy(() => import('./views/survey/Survey'))
 const Menu = React.lazy(() => import('./views/foodMenu/Menu'))
+const Ambiance = React.lazy(() => import('./views/ambiance/Ambiance'))
+const Service = React.lazy(() => import('./views/service/Service'))
+const Rewards = React.lazy(() => import('./views/rewards/Rewards'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -100,6 +103,9 @@ const routes = [
   { path: '/widgets', name: 'Widgets', element: Widgets },
   {path: '/surveys', name: 'Surveys', element: Survey},
   {path: '/menu', name: 'Menu', element: Menu},
+  {path: '/ambiance', name: 'Ambiance', element: Ambiance},
+  {path: '/service', name: 'Service', element: Service},
+  {path: '/rewards', name: 'Rewards', element: Rewards},
 ]
 
 export default routes

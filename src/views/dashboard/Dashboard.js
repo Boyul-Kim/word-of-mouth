@@ -21,24 +21,10 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import {
-  cibCcAmex,
-  cibCcApplePay,
-  cibCcMastercard,
-  cibCcPaypal,
-  cibCcStripe,
-  cibCcVisa,
   cibGoogle,
   cibFacebook,
   cibLinkedin,
-  cifBr,
-  cifEs,
-  cifFr,
-  cifIn,
-  cifPl,
-  cifUs,
   cibTwitter,
-  cilCloudDownload,
-  cilPeople,
   cilUser,
   cilUserFemale,
 } from '@coreui/icons'
@@ -96,7 +82,7 @@ const Dashboard = () => {
       usage: {
         name: 'Burger',
         value: 50,
-        period: 'Jun 11, 2023 - Jul 10, 2023',
+        period: 'April 1, 2024 - May 20, 2024',
         color: '#556B2F',
       },
       survey: { value: 3.8 }
@@ -111,7 +97,7 @@ const Dashboard = () => {
       usage: {
         name: 'Pizza',
         value: 22,
-        period: 'Jun 11, 2023 - Jul 10, 2023',
+        period: 'April 1, 2024 - May 20, 2024',
         color: 'info',
       },
       survey: { value: 4.3}
@@ -122,7 +108,7 @@ const Dashboard = () => {
       usage: {
         name: 'Tacos',
         value: 74,
-        period: 'Jun 11, 2023 - Jul 10, 2023',
+        period: 'April 1, 2024 - May 20, 2024',
         color: 'warning',
       },
       survey: { value: 4.7 }
@@ -133,7 +119,7 @@ const Dashboard = () => {
       usage: {
         name: 'Salad',
         value: 98,
-        period: 'Jun 11, 2023 - Jul 10, 2023',
+        period: 'April 1, 2024 - May 20, 2024',
         color: 'danger',
       },
       survey: { value: '2.9' }
@@ -148,7 +134,7 @@ const Dashboard = () => {
       usage: {
         name: 'Pasta',
         value: 22,
-        period: 'Jun 11, 2023 - Jul 10, 2023',
+        period: 'April 1, 2024 - May 20, 2024',
         color: 'primary',
       },
       survey: { value: 3.9 }
@@ -163,7 +149,7 @@ const Dashboard = () => {
       usage: {
         name: 'Sandwich',
         value: 43,
-        period: 'Jun 11, 2023 - Jul 10, 2023',
+        period: 'April 1, 2024 - May 20, 2024',
         color: 'success',
       },
       survey: { value: 4.4 }
@@ -231,7 +217,7 @@ const Dashboard = () => {
       <CRow>
         <CCol xs>
           <CCard className="mb-4">
-            {/* <CCardHeader>Traffic {' & '} Sales</CCardHeader> */}
+            <CCardHeader>Rewards</CCardHeader>
             <CCardBody>
               {/* <CRow>
                 <CCol xs={12} md={6} xl={6}>
@@ -314,10 +300,16 @@ const Dashboard = () => {
                     ))}
                 </CCol>
               </CRow> */}
-
-              <br />
-
-              <CTable align="middle" className="mb-0 border" hover responsive>
+            </CCardBody>
+          </CCard>
+        </CCol>
+      </CRow>
+      <CRow>
+        <CCol>
+          <CCard className="mb-4">
+          <CCardHeader>Menu Overview</CCardHeader>
+          <CCardBody>
+            <CTable align="middle" className="mb-0 border" hover responsive>
                 <CTableHead className="text-nowrap">
                   <CTableRow>
                     {/* <CTableHeaderCell className="bg-body-tertiary text-center">
@@ -353,13 +345,13 @@ const Dashboard = () => {
                         <CProgress thin color={item.usage.color} value={item.usage.value} />
                       </CTableDataCell>
                       <CTableDataCell className="text-center">
-                        <div style={ item.survey.value >= 3.0 ?{border: '1px solid #556B2F', background: '#556B2F', color: 'white'}:{border: '1px solid #800020', background:'#800020', color: 'white'}}>{item.survey.value}/5.0</div>
+                        <div style={ item.survey.value >= 3.0 ?{border: '1px solid #00A566', background: '#00A566', color: 'white'}:{border: '1px solid #DC4731', background:'#DC4731', color: 'white'}}>{item.survey.value}/5.0</div>
                       </CTableDataCell>
                     </CTableRow>
                   ))}
                 </CTableBody>
               </CTable>
-            </CCardBody>
+          </CCardBody>
           </CCard>
         </CCol>
       </CRow>

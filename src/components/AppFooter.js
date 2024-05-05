@@ -1,11 +1,14 @@
 import React from 'react'
 import { CFooter } from '@coreui/react'
+import {
+  cilCopy
+} from '@coreui/icons'
 
 const AppFooter = () => {
   return (
     <CFooter className="px-4">
       <div>
-        Feed
+        Copyright <span>&copy;</span> 2024 Feed 
       </div>
       {/* <div>
         <a href="https://coreui.io" target="_blank" rel="noopener noreferrer">
